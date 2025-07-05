@@ -1,1 +1,76 @@
-/* You can add global styles to this file, and also import other style files */
+@use './theme-colors' as theme;
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+// 🌞 Light Theme
+$light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: theme.$primary-palette,
+    tertiary: theme.$tertiary-palette,
+  ),
+));
+
+// 🌙 Dark Theme
+$dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: theme.$primary-palette,
+    tertiary: theme.$tertiary-palette,
+  ),
+));
+
+// Apply light theme by default
+body {
+  @include mat.all-component-themes($light-theme);
+  @include theme.high-contrast-overrides(light);
+}
+
+// Apply dark theme when `.dark-theme` class is present
+body.dark-theme {
+  @include mat.all-component-themes($dark-theme);
+  @include theme.high-contrast-overrides(dark);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  body {
+    margin: 0;
+    height: 100%;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    transition: background-color 0.3s ease;
+  }
+
+  // styles.scss
+  .snackbar-success {
+    background-color: #4caf50;
+    color: white;
+  }
+
+  .snackbar-error {
+    background-color: #f44336;
+    color: white;
+  }
+
+  .snackbar-info {
+    background-color: #2196f3;
+    color: white;
+  }
+
+  .light-theme {
+    --md-sys-color-primary: #0056A3;
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  .dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+  }
+
+}
