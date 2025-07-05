@@ -1,59 +1,47 @@
-# AaaMart
+# 🛍️ Angular E-Commerce Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.2.
+This project is the **frontend** for an e-commerce web application, developed using **Angular 20** and **Angular Material 20**. It currently features fully functional **Login** and **Signup** pages with secure client-side encryption for transmitting sensitive user data (e.g., passwords) to the backend.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Features Implemented
+
+- ✅ **Login & Signup UI** using Angular Material components.
+- ✅ **Client-side AES encryption** for securely sending passwords and sensitive data.
+- ✅ **Reactive Forms with validation** (email, password strength, etc.)
+- ✅ **Theme-ready UI** (custom Material 20 palette support)
+- ✅ Responsive design for mobile & desktop
+
+---
+
+## 🔐 Security
+
+Sensitive form data (e.g., passwords) is encrypted in the browser before being sent to the backend using AES encryption. The encryption uses:
+
+- Dynamic IV (Initialization Vector)
+- Shared key exchange protocol
+- Base64 encoding for transmission
+
+> ⚠️ Backend must implement matching decryption logic using the same IV/key mechanism.
+
+---
+
+## 📦 Installation
+
+Ensure [Node.js](https://nodejs.org/) is installed. Then run:
+
+```bash
+npm install
+
+---
+
+## 🧪 Running the App
+
+To start the development server:
 
 ```bash
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
