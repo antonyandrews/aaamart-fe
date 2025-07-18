@@ -1,24 +1,28 @@
 import { Routes } from '@angular/router';
-import { Login } from './components/login/login'
-import { SigupComponent } from './components/sigup-component/sigup-component';
-import { Dashboard } from './components/dashboard/dashboard';
 
 export const routes: Routes = [
   {
+    path: '',
+    component: (await import('./layout/components/base-layout/base-layout')).BaseLayout,
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'dashboard'
+      },
+      {
+        path: 'dashboard',
+        loadComponent: () =>
+          import('./components/dashboard/dashboard').then(m => m.Dashboard),
+      },
+    ]
+  },
+  {
     path: 'login',
-    component: Login
+    loadComponent: () => import('./components/login/login').then(m => m.Login),
   },
   {
     path: 'signup',
-    component: SigupComponent
+    loadComponent: () => import('./components/sigup-component/sigup-component').then(m => m.SigupComponent),
   },
-  {
-    path: 'dashboard',
-    component: Dashboard
-  },
-  {
-    path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
-  }
 ];

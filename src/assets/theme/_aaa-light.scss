@@ -1,0 +1,25 @@
+@use "@angular/material" as mat;
+@use "./theme-colors" as tokens;
+
+$light-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: tokens.$primary-palette,
+      tertiary: tokens.$tertiary-palette,
+    ),
+    typography: (
+      plain-family: Bitcount Grid Single,
+      // most app texts
+      brand-family: Bitcount Grid Single,
+      // headlines and titles
+      bold-weight: 900,
+      medium-weight: 500,
+      regular-weight: 300,
+    ),
+  )
+);
+
+body {
+  @include mat.all-component-themes($light-theme);
+}
