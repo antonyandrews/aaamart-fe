@@ -2,6 +2,7 @@ export interface UserSignup {
   firstName: string;
   lastName: string;
   email: string;
+  type: string,
   encryptedKey: string;
   encryptedIv: string;
 }
@@ -22,4 +23,9 @@ export interface UserLoginRequest {
 
 export interface SecureLog {
   secLog: string;
+}
+
+export interface UserLoginResponse {
+  token: string;
+  refreshToken: string;
 }

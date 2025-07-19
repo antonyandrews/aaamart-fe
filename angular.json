@@ -28,7 +28,8 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/theme/_aaa-theme.tokens.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [

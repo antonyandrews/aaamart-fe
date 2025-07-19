@@ -67,8 +67,9 @@ export class SigupComponent {
             iv,
             response.secLog
           );
+          const encryptedType = await this.cryptoService.encryptWithAES('3', key, iv);
           this.authService.userRegistration(
-            { firstName, lastName, email: encEmail, encryptedKey, encryptedIv },
+            { firstName, lastName, email: encEmail, type: encryptedType, encryptedKey, encryptedIv },
             (response: any) => {
               if (response.message && response.message == 'User Created Successfuly') {
                 this.notify.showSuccess(response.message);

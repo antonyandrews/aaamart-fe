@@ -4,6 +4,8 @@
   align-items: center;
   height: 100vh;
   background-color: #f0f0f0;
+  background-image: url("./../../../assets/backdrop.jpg");
+  background-size: cover;
 }
 
 .login-card {
@@ -46,6 +48,7 @@
   text-decoration: underline;
 }
 
-.mat-mdc-card-title, .mat-mdc-card-subtitle {
+.mat-mdc-card-title,
+.mat-mdc-card-subtitle {
   margin-bottom: 5px;
 }

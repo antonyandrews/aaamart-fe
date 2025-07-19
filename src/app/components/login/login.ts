@@ -80,7 +80,6 @@ export class Login {
             { email: encEmail, password: encPass, encryptedKey, encryptedIv },
             (response: any) => {
               if (response.token) {
-                localStorage.setItem('token', response.token);
                 this.router.navigateByUrl("dashboard");
               }
             }
