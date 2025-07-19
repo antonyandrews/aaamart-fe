@@ -1,0 +1,14 @@
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  .mat-icon {
+    font-size: 20px;
+    color: var(--aaa-neutral-40);
+  }
+
+  .mat-icon.filled {
+    color: var(--aaa-primary);
+  }
+}

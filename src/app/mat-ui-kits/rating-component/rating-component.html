@@ -1,0 +1,7 @@
+<div class="stars" role="img" [attr.aria-label]="'Rating: ' +  rating  +' of 5'">
+  <ng-container *ngFor="let star of stars; let i = index">
+    <mat-icon (click)="onSelect(i + 1)" [ngClass]="{ filled: i < rating }">
+      star
+    </mat-icon>
+  </ng-container>
+</div>

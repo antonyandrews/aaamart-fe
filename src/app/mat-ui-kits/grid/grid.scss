@@ -1,0 +1,97 @@
+@use "./../../../assets/theme/theme-utils" as theme;
+
+.product-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+
+  @include theme.themed-bg("aaa-surface");
+  @include theme.themed-color("aaa-on-surface");
+
+  .image-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    background-color: var(--aaa-tertiary);
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+
+  .card-content {
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+
+    .text-info {
+      mat-card-title {
+        font-size: 1rem;
+        font-weight: 600;
+        @include theme.themed-color("aaa-on-surface");
+      }
+
+      mat-card-subtitle {
+        font-size: 0.85rem;
+        @include theme.themed-color("aaa-neutral-40");
+      }
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+
+      .price {
+        font-weight: 600;
+        font-size: 1.1rem;
+        @include theme.themed-color("aaa-primary");
+      }
+    }
+
+    .add-to-cart-btn {
+      width: 100%;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: none;
+      border-radius: 24px;
+      padding: 10px 16px;
+      transition: background-color 0.3s ease;
+      font-family: 'Bitcount Grid Single';
+
+      @include theme.themed-button("aaa-primary", "aaa-on-primary");
+
+      &:hover {
+        opacity: 0.9;
+      }
+
+      &:active {
+        opacity: 0.8;
+      }
+
+      mat-icon {
+        font-size: 20px;
+      }
+    }
+  }
+}

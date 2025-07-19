@@ -1,0 +1,71 @@
+:root {
+  // PRIMARY
+  --aaa-primary: #005BAC;
+  --aaa-primary-30: #004788;
+  --aaa-primary-40: #0b5eaf;
+  --aaa-primary-60: #5492e6;
+  --aaa-on-primary: #ffffff;
+
+  // SECONDARY
+  --aaa-secondary: #E31837;
+  --aaa-secondary-30: #92001d;
+  --aaa-secondary-40: #bf0029;
+  --aaa-secondary-60: #ff525b;
+  --aaa-on-secondary: #ffffff;
+
+  // TERTIARY
+  --aaa-tertiary: #F5F5F5;
+  --aaa-tertiary-30: #454747;
+  --aaa-tertiary-40: #5d5f5f;
+  --aaa-tertiary-60: #909191;
+  --aaa-on-tertiary: #000000;
+
+  // NEUTRAL
+  --aaa-neutral-30: #3c494f;
+  --aaa-neutral-40: #536067;
+  --aaa-neutral-80: #bbc9d0;
+  --aaa-neutral-90: #d7e5ec;
+
+  // ERROR
+  --aaa-error: #E53935;
+  --aaa-on-error: #ffffff;
+
+  // Background & Surface
+  --aaa-background: #ffffff;
+  --aaa-surface: #ffffff;
+  --aaa-on-background: #101d23;
+  --aaa-on-surface: #101d23;
+}
+
+.dark-theme {
+  --aaa-primary: #a7c8ff;
+  --aaa-primary-30: #5492e6;
+  --aaa-primary-40: #75adff;
+  --aaa-primary-60: #3678ca;
+  --aaa-on-primary: #000000;
+
+  --aaa-secondary: #ffb3b1;
+  --aaa-secondary-30: #ff525b;
+  --aaa-secondary-40: #ff8888;
+  --aaa-secondary-60: #e81e3a;
+  --aaa-on-secondary: #000000;
+
+  --aaa-tertiary: #2f3131;
+  --aaa-tertiary-30: #454747;
+  --aaa-tertiary-40: #5d5f5f;
+  --aaa-tertiary-60: #909191;
+  --aaa-on-tertiary: #ffffff;
+
+  --aaa-neutral-30: #3c494f;
+  --aaa-neutral-40: #85939a;
+  --aaa-neutral-80: #d7e5ec;
+  --aaa-neutral-90: #e5f3fa;
+
+  --aaa-error: #ff544c;
+  --aaa-on-error: #000000;
+
+  --aaa-background: #101d23;
+  --aaa-surface: #08151a;
+  --aaa-on-background: #ffffff;
+  --aaa-on-surface: #ffffff;
+}

@@ -1,0 +1,46 @@
+<div class="cart-container" *ngIf="cartItems().length > 0; else emptyCart">
+  <div class="total-section">
+    <div class="summary">
+      <div class="summary-buttons">
+        <button class="back-button" [routerLink]="['/dashboard']">
+          ← Products
+        </button>
+        <button class="checkout-button">Checkout →</button>
+      </div>
+    </div>
+  </div>
+  <div class="cart-item" *ngFor="let item of cartItems()">
+    <div class="image-wrapper">
+      <img [src]="item.image" alt="{{ item.name }}" />
+    </div>
+
+    <div class="details">
+      <div class="title">{{ item.name }}</div>
+      <div class="desc">{{ item.description }}</div>
+    </div>
+
+    <div class="actions">
+      <div class="quantity">
+        <button mat-icon-button (click)="decrease(item)">
+          <mat-icon>remove</mat-icon>
+        </button>
+        <span>{{ item.quantity }}</span>
+        <button mat-icon-button (click)="increase(item)">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+
+      <div class="price">₹{{ item.price * item.quantity }}</div>
+
+      <!-- <button mat-stroked-button color="warn" (click)="remove(item)">Remove</button> -->
+    </div>
+  </div>
+  <div class="total-section">
+    <h3 class="total-text">Total: ₹{{ total() }}</h3>
+  </div>
+</div>
+
+<ng-template #emptyCart>
+  <div class="empty-cart">Your cart is empty.</div>
+</ng-template>
+
