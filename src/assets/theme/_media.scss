@@ -1,0 +1,33 @@
+// Breakpoints
+$breakpoints: (
+  'xs': 360px,
+  'sm': 600px,
+  'md': 960px,
+  'lg': 1280px,
+  'xl': 1920px,
+  'xxl': 2560px // 4K and beyond
+);
+
+// Portrait Media Query Mixin
+@mixin respond-portrait($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+  @media screen and (max-width: $value) and (orientation: portrait) {
+    @content;
+  }
+}
+
+// Landscape Media Query Mixin
+@mixin respond-landscape($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+  @media screen and (max-width: $value) and (orientation: landscape) {
+    @content;
+  }
+}
+
+// Standard Media Query Mixin (regardless of orientation)
+@mixin respond($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+  @media screen and (max-width: $value) {
+    @content;
+  }
+}

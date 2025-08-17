@@ -1,0 +1,50 @@
+@if (cartItems().length > 0 ) {
+
+<mat-grid-list cols="12" rowHeight="100px" id="total-container">
+  <mat-grid-tile colspan="12">
+    <button matButton color="primary" routerLink="/product">
+      ← Back to Products
+    </button>
+    <h3 class="total-text">Total: ₹{{ total() }}</h3>
+    <button matButton color="accent">Proceed to Checkout →</button>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-grid-list cols="12" rowHeight="100px">
+  @for (item of cartItems(); track $index) {
+  <mat-grid-tile colspan="12">
+    <div class="cart-item">
+      <div class="image-wrapper">
+        <img [src]="item.image" alt="{{ item.name }}" />
+      </div>
+
+      <div class="details">
+        <div class="title">{{ item.name }}</div>
+        <div class="desc">{{ item.description }}</div>
+      </div>
+
+      <div class="actions">
+        <div class="quantity-group">
+          <button mat-button class="qty-btn" (click)="decrease(item)">
+            <mat-icon>remove</mat-icon>
+          </button>
+
+          <div class="qty-value">{{ item.quantity }}</div>
+
+          <button mat-button class="qty-btn" (click)="increase(item)">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+
+        <div class="price">₹{{ item.price * item.quantity }}</div>
+      </div>
+    </div>
+  </mat-grid-tile>
+  }
+
+</mat-grid-list>
+} 
+
+@if (cartItems() == 0) {
+  <div class="empty-cart">Your cart is empty.</div>
+}

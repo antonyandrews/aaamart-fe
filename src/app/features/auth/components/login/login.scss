@@ -1,0 +1,48 @@
+@use './.././../../../../assets/theme/media' as media;
+@use './.././../../../../assets/scss/mixins/utils-mixin' as utils;
+
+.container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  background-image: url('./../../../../../assets/backdrop.jpg');
+  background-size: cover;
+
+  .login-card {
+    @include utils.rem(padding, 20);
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 350px;
+    left: 25%;
+    transform: translateX(-50%);
+
+    .link-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 16px 0;
+      font-size: 14px;
+
+      &::before,
+      &::after {
+        content: '';
+        flex: 1;
+        margin: 0 8px;
+      }
+    }
+
+    .google-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+}

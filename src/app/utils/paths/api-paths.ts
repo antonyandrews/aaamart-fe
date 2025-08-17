@@ -4,7 +4,8 @@ export const API_PATHS = {
     signup: '/users',
     secureLog: '/auth/public-key',
     login: '/auth/login',
-    refresh: '/auth/refresh-token'
+    refresh: '/auth/refresh-token',
+    googleOauth: '/auth/google/token'
   },
   log: {
     logs: "/logs/client-log"

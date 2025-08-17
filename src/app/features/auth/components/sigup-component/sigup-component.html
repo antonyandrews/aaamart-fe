@@ -1,0 +1,54 @@
+<div class="signup-container">
+  <mat-card class="signup-card">
+    <app-image-container/>
+    <mat-card-content>
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>First Name</mat-label>
+          <input
+            matInput
+            name="firstName"
+            formControlName="firstName"
+            required
+          />
+          <mat-error
+            *ngIf="signupForm.controls['firstName']?.errors?.['required']"
+          >
+            First name is required.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Last Name</mat-label>
+          <input
+            matInput
+            name="lastName"
+            formControlName="lastName"
+            required
+          />
+          <mat-error
+            *ngIf="signupForm.controls['lastName']?.errors?.['required']"
+          >
+            Last name is required.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput name="email" formControlName="email" required email />
+          <mat-error *ngIf="signupForm.controls['email']?.errors?.['required']">
+            Email is required.
+          </mat-error>
+          <mat-error *ngIf="signupForm.controls['email']?.errors?.['email']">
+            Invalid email format.
+          </mat-error>
+        </mat-form-field>
+
+        <button matButton="filled" type="submit" class="full-width">Sign Up</button>
+        
+        <div class="link-container">
+          <button matButton routerLink="/login">Log In</button>
+          <button matButton routerLink="/store/new">Create Store</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

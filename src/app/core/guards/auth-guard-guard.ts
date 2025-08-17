@@ -1,7 +1,7 @@
 import { CanActivateFn } from '@angular/router';
-import { AuthTokenService } from '../../service/auth-token.service';
 import { inject } from '@angular/core';
-import { Auth } from '../../service/auth';
+import { AuthTokenService } from '../../features/auth/services/auth-token.service';
+import { Auth } from '../../features/auth/services/auth';
 
 export const AUTH_GUARD: CanActivateFn = async (route, state) => {
   const tokenService = inject(AuthTokenService);
@@ -14,12 +14,19 @@ export const AUTH_GUARD: CanActivateFn = async (route, state) => {
     tokenService.clearTokens();
     return false;
   }
-
-  if (!tokenService.isTokenExpired(token)) {
-    return true;
+  
+  switch (tokenService.getAuthFrom()) {
+    case 2:
+      if (!tokenService.isGoogleTokenExpired()) {
+        return true;
+      }
+      break;
+    default:
+      if (!tokenService.isTokenExpired(token)) {
+        return true;
+      } else {
+        return await authService.refreshToken();
+      }
   }
-
-  // Token expired, try refresh
-  const success = await authService.refreshToken();
   return true;
 };

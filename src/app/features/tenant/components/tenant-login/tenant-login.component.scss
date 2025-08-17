@@ -1,0 +1,28 @@
+@use './.././../../../../assets/theme/media' as media;
+@use './.././../../../../assets/scss/mixins/utils-mixin' as utils;
+
+.store-login-container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  background-image: url('./../../../../../assets/backdrop.jpg');
+  background-size: cover;
+
+  .store-login-card {
+    @include utils.rem(padding, 20);
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 350px;
+    left: 25%;
+    transform: translateX(-50%);
+
+    .link-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}

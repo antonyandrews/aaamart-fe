@@ -1,0 +1,19 @@
+@mixin rem($property, $px, $base: 16) {
+  #{$property}: #{($px / $base)}rem;
+}
+
+@mixin width($number) {
+  @if $number >= 0 {
+    width: percentage($number / 100);
+  } @else {
+    width: auto;
+  }
+}
+
+@mixin height($number) {
+  @if $number >= 0 {
+    height: percentage($number / 100);
+  } @else {
+    height: auto;
+  }
+}

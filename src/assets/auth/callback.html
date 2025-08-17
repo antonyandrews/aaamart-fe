@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google OAuth Callback</title>
+</head>
+<body>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get('code');
+  const state = params.get('state');
+
+  if (code) {
+    sessionStorage.setItem('google_code', code);
+    sessionStorage.setItem('google_state', state);
+    // Redirect to Angular route with hash
+    window.location.href = '/#/oauth/callback';
+  }
+</script>
+</body>
+</html>

@@ -1,11 +1,31 @@
-@use './assets/theme/aaa-light'; // Default applied
-@use './assets/theme/aaa-dark';
 @use '@angular/material';
+@use './assets/theme/themes_theme-colors.scss' as aaa-theme;
+@use './assets/scss/style/utils';
+
+
 
 html {
+  // Must specify color-scheme for theme mixin to automatically work
+  color-scheme: light dark;
+
+  // Create one theme that works automatically for light and dark theme
+  @include material.theme((
+    color: (
+      primary: aaa-theme.$primary-palette,
+      tertiary: aaa-theme.$tertiary-palette,
+    ),
+    typography: Bitcount Grid Single,
+    density: 0,
+  ));
+
+  // Use high contrast values when users prefer contrast
+  @media (prefers-contrast: more) {
+    @include aaa-theme.high-contrast-overrides(color-scheme);
+  }
+
   body {
     margin: 0;
-    font-family: 'Bitcount Grid Single';
+    font-family: Bitcount Grid Single;
   }
 }
 
@@ -14,10 +34,12 @@ html {
   background-color: #4caf50;
   color: white;
 }
+
 .snackbar-error {
   background-color: #f44336;
   color: white;
 }
+
 .snackbar-info {
   background-color: #2196f3;
   color: white;

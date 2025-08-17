@@ -1,41 +1,55 @@
 import { Routes } from '@angular/router';
 import { AUTH_GUARD } from './core/guards/auth-guard-guard';
-import { CartComponent } from './components/cart-component/cart-component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: (await import('./layout/components/base-layout/base-layout'))
+    component: (await import('./features/layout/components/base-layout/base-layout'))
       .BaseLayout,
     children: [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'dashboard',
+        redirectTo: 'product',
       },
       {
-        path: 'dashboard',
+        path: 'product',
         canActivate: [AUTH_GUARD],
         loadComponent: () =>
-          import('./components/dashboard/dashboard').then((m) => m.Dashboard),
+          import('./features/products/components/product/product').then((m) => m.Product),
       },
       {
         path: 'cart',
         canActivate: [AUTH_GUARD], // if needed
-        component: CartComponent,
+        loadComponent: () =>
+          import('./features/cart/components/cart-component/cart-component').then((m) => m.CartComponent),
       },
     ],
   },
   {
     path: 'login',
     loadComponent: () =>
-      import('./components/login/login').then((m) => m.Login),
+      import('./features/auth/components/login/login').then((m) => m.Login),
   },
   {
     path: 'signup',
     loadComponent: () =>
-      import('./components/sigup-component/sigup-component').then(
+      import('./features/auth/components/sigup-component/sigup-component').then(
         (m) => m.SigupComponent
       ),
+  }, 
+  {
+    path: 'store/new',
+    loadComponent: () =>
+      import('./features/tenant/components/tenant-login/tenant-login.component').then(
+        (m) => m.TenantLoginComponent
+      ),
   },
+  {
+    path: 'oauth/callback',
+    loadComponent: () =>
+      import('./features/auth/components/google-oauth-callback/google-oauth-callback.component').then(
+        (m) => m.GoogleOauthCallbackComponent
+      ),
+  }
 ];

@@ -1,0 +1,32 @@
+<div class="container">
+  <mat-card class="login-card" appearance="filled">
+    <app-image-container />
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Email or User Id</mat-label>
+          <input matInput formControlName="email">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password">
+        </mat-form-field>
+        <button matButton="filled" class="full-width" type="submit">Login</button>
+        <div class="link-container">
+          <button matButton routerLink="/signup">Sign Up</button>
+          <button matButton routerLink="/signup">Forgot Password?</button>
+        </div>
+      </form>
+
+      <div class="divider">
+        <span>OR</span>
+      </div>
+      
+
+      <button matButton color="accent" class="google-btn" (click)="signInWithGoogle()">
+        <mat-icon svgIcon="google" aria-hidden="false" aria-label="Google icon"></mat-icon>
+        Continue with Google
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>

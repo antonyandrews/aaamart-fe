@@ -1,0 +1,5 @@
+@use './../mixins/utils-mixin' as utilMixin;
+
+.full-width {
+    @include utilMixin.width(100)
+}

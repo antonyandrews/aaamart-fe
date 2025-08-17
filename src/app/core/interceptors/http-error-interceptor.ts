@@ -1,4 +1,3 @@
-// src/app/core/interceptors/http-error.interceptor.ts
 import {
   HttpInterceptorFn,
   HttpHandlerFn,
@@ -7,7 +6,7 @@ import {
 } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { catchError, throwError } from 'rxjs';
-import { LoggerService } from '../services/logger';
+import { LoggerService } from '../../utils/services/logger';
 
 export const httpErrorInterceptor: HttpInterceptorFn = (
   req: HttpRequest<unknown>,
